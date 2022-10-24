@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:game_center/modules/explore/models/game_model.dart';
-import 'package:game_center/widgets/widgets.dart';
+import 'package:game_center/main.import.dart';
+import 'package:game_center/main.library.dart';
+import '../../models/models.dart';
+import 'rating_badge.dart';
+import 'metacritic_badge.dart';
 
 class GameCard extends StatelessWidget {
   final GameModel data;
@@ -8,39 +10,94 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 220,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ImagePlaceholder(
-            imageUrl: data.backgroundImage,
-            height: 200,
-            width: 200,
-          ),
-          const SizedBox(height: 10),
-          TypographyCustom.heading.h5(data.name, maxLines: 2),
-          const SizedBox(height: 15),
-          TypographyCustom.subheading
-              .medium(data.genres.first.name, maxLines: 1),
-          const SizedBox(height: 15),
-          Row(
-            children: [
-              Expanded(
-                child: data.releaseDate == null
-                    ? TypographyCustom.subheading
-                        .medium(DateTime.now().toString(), maxLines: 1)
-                    : TypographyCustom.subheading
-                        .medium(data.releaseDate.toString(), maxLines: 1),
-              ),
-              const SizedBox(width: 8),
-              Container(
-                child: TypographyCustom.heading.h3("90"),
-              )
-            ],
-          ),
-        ],
+    return SizedBox(
+      width: 200,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Theme.of(context).disabledColor),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Stack(
+              children: [
+                ImagePlaceholder(
+                    imageUrl: data.backgroundImage,
+                    height: 180,
+                    width: 180,
+                    borderRadius: BorderRadius.circular(25)),
+                Positioned(
+                    top: 10, right: 10, child: RatingBadge(value: data.rating))
+              ],
+            ),
+            const SizedBox(height: 12),
+            TypographyCustom.heading
+                .h5(data.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+            const SizedBox(height: 6),
+            if (data.genres.isNotEmpty)
+              TypographyCustom.subheading.medium(data.genres.first.name,
+                  maxLines: 1, overflow: TextOverflow.ellipsis)
+            else
+              TypographyCustom.subheading
+                  .medium("", maxLines: 1, overflow: TextOverflow.ellipsis),
+            const SizedBox(height: 7),
+            Row(
+              children: [
+                Expanded(
+                  child: data.releaseDate == null
+                      ? Container()
+                      : TypographyCustom.subheading.medium(
+                          DateFormat("dd, MMM yyyy").format(data.releaseDate!),
+                          maxLines: 1),
+                ),
+                const SizedBox(width: 8),
+                if (data.metacritic != null)
+                  MetacriticBadge(value: data.metacritic!)
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget loader() {
+    return _BuildLoader();
+  }
+}
+
+class _BuildLoader extends StatefulWidget {
+  _BuildLoader({Key? key}) : super(key: key);
+
+  @override
+  State<_BuildLoader> createState() => __BuildLoaderState();
+}
+
+class __BuildLoaderState extends State<_BuildLoader> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 200,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Theme.of(context).disabledColor),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            SkeletonLoaderSquare(width: 180, height: 180, roundedRadius: 25),
+            SizedBox(height: 12),
+            SkeletonLoaderSquare(width: double.infinity, height: 16),
+            SizedBox(height: 6),
+            SkeletonLoaderSquare(width: double.infinity, height: 14),
+            SizedBox(height: 7),
+            SkeletonLoaderSquare(width: double.infinity, height: 14)
+          ],
+        ),
       ),
     );
   }
