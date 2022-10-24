@@ -2,7 +2,9 @@ import 'package:game_center/main.import.dart';
 
 class AttributeCard extends StatelessWidget {
   final String data;
-  const AttributeCard({Key? key, required this.data}) : super(key: key);
+  final String? image;
+  const AttributeCard({Key? key, required this.data, this.image})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,24 @@ class AttributeCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: Theme.of(context).disabledColor,
           borderRadius: BorderRadius.circular(30)),
-      child: TypographyCustom.bodyText.body2Bold(data),
+      child: Row(
+        children: [
+          if (image != null)
+            Container(
+              padding: const EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).textTheme.bodyText1!.color),
+              child: ImagePlaceholder(
+                  height: 25,
+                  width: 25,
+                  shape: BoxShape.circle,
+                  imageUrl: image),
+            ),
+          if (image != null) const SizedBox(width: 8),
+          TypographyCustom.bodyText.body2Bold(data),
+        ],
+      ),
     );
   }
 
