@@ -59,7 +59,7 @@ class _NudeButtonBuilder extends StatelessWidget {
                         .button
                         ?.copyWith(fontSize: fontSize)),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24))),
+                borderRadius: BorderRadius.circular(32))),
             foregroundColor: MaterialStateProperty.resolveWith((states) =>
                 states.contains(MaterialState.disabled)
                     ? Theme.of(context).primaryColorLight.withOpacity(0.5)

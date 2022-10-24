@@ -13,7 +13,7 @@ class BannerDebugCard extends StatelessWidget {
           children: [
             Card(
                 elevation: 12,
-                color: Theme.of(context).shadowColor,
+                color: Theme.of(context).primaryColor,
                 margin: EdgeInsets.zero,
                 child: InkWell(
                   onTap: () {
@@ -23,7 +23,7 @@ class BannerDebugCard extends StatelessWidget {
                       padding: const EdgeInsets.all(3.0),
                       child: Icon(
                         Icons.bug_report,
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 30,
                       )),
                 )),
@@ -40,7 +40,7 @@ class BannerDebugCard extends StatelessWidget {
                       padding: const EdgeInsets.all(3.0),
                       child: Icon(
                         Icons.nearby_error,
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 30,
                       )),
                 ))

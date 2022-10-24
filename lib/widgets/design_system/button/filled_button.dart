@@ -38,10 +38,10 @@ class _FilledButtonBuilder extends StatelessWidget {
     Color? _bgColor;
 
     if (colorType == ButtonColorType.primary) {
-      _fgColor = Theme.of(context).scaffoldBackgroundColor;
+      _fgColor = Theme.of(context).textTheme.button!.color;
       _bgColor = Theme.of(context).primaryColor;
     } else if (colorType == ButtonColorType.secondary) {
-      _fgColor = Theme.of(context).scaffoldBackgroundColor;
+      _fgColor = Theme.of(context).textTheme.button!.color;
       _bgColor = Theme.of(context).primaryColorDark;
     } else {
       //tertiary
@@ -63,7 +63,7 @@ class _FilledButtonBuilder extends StatelessWidget {
                         .button
                         ?.copyWith(fontSize: fontSize)),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24))),
+                borderRadius: BorderRadius.circular(32))),
             foregroundColor: MaterialStateProperty.resolveWith((states) =>
                 states.contains(MaterialState.disabled)
                     ? Theme.of(context).primaryColorLight.withOpacity(0.5)

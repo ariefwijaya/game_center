@@ -62,7 +62,7 @@ class _GhostButtonBuilder extends StatelessWidget {
                 ? BorderSide(width: 3, color: Theme.of(context).disabledColor)
                 : BorderSide(width: 3, color: _color)),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24))),
+                borderRadius: BorderRadius.circular(32))),
             foregroundColor: MaterialStateProperty.resolveWith(
                 (states) => states.contains(MaterialState.disabled) ? Theme.of(context).primaryColorLight.withOpacity(0.5) : _color),
             elevation: MaterialStateProperty.all(0),

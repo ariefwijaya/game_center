@@ -48,6 +48,6 @@ class AppSetting {
   /// Price format to show
   static const String defaultIsoCode = 'ID';
 
-  /// Default theme Style for this app [AppTheme.primaryLight]
-  static const AppTheme defaultTheme = AppTheme.primaryLight;
+  /// Default theme Style for this app [AppTheme.primaryDark]
+  static const AppTheme defaultTheme = AppTheme.primaryDark;
 }
