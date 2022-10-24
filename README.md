@@ -14,12 +14,12 @@ Ok, I think that's enough as an introduction, now without any further ado lets s
 This part is quite challenging for me because I am not an artist, but I have idealism to try to get the perfect design even if it doesn't exist. So to save time, I made a quick selection of dribbble:
 |[Preview 1](https://dribbble.com/shots/16666083-Game-Store-App)|[Preview 2](https://dribbble.com/shots/16716121-Game-Store-App)|
 |---|---|
-|<img src="https://cdn.dribbble.com/users/3102427/screenshots/16666083/media/63e0b6f0c13499e51e2e30c8849664dc.jpg" width=200/>|<img src="https://cdn.dribbble.com/users/4559563/screenshots/16716121/media/0e9150bb29b9558ff80646c1fc87cdaf.png" width=200/>|
+|<img src="https://user-images.githubusercontent.com/24664153/197448969-e353f13f-d034-4a06-888c-7481d37df286.jpg" width=200/>|<img src="https://user-images.githubusercontent.com/24664153/197449043-79d74c72-6d39-43fa-a226-2e12548d4536.png" width=200/>|
 
-I like the first design, but the dark theme seems more suitable for game center app. So, mixing them will be cool. 
+I like the first design, but the dark theme seems more suitable for game center app. So, mixing them will be cool. 
 | Mixed |
 |---|
-|<img src="https://cdn.dribbble.com/users/3102427/screenshots/16666083/media/63e0b6f0c13499e51e2e30c8849664dc.jpg" width=200/>|
+|<img src="https://user-images.githubusercontent.com/24664153/197448628-57cafacb-34f3-4298-823a-ff0ca883c877.png" width=200/>|
 
 # Toolkit & External libraries
 We must prepare the toolkit and determine which external library to use. Here are the toolkit and SDK that I'm using in this assignment:
