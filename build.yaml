@@ -1,0 +1,53 @@
+targets:
+  $default:
+    builders:
+      auto_route_generator|autoRouteGenerator:
+        enabled: true
+        generate_for:
+          include:
+            - lib/config/routes/routes.dart
+            - lib/config/routes/routes_config.dart
+      envify_generator:envify:
+        generate_for:
+          include:
+            - lib/env/env.dart
+      copy_with_extension_gen:copy_with_extension_gen:
+        enabled: true
+        generate_for:
+          include:
+            - lib/modules/**/models/**_model.dart
+            - lib/core/**/models/**_model.dart
+      json_serializable:
+        enabled: true
+        generate_for:
+          include:
+            - lib/modules/**/models/**_model.dart
+            - lib/core/**/models/**_model.dart
+        # options:
+        #   field_rename: snake
+      injectable_generator:injectable_builder:
+        enabled: true
+        generate_for:
+          include:
+            - lib/config/routes/routes_config.dart
+            - lib/core/**_bloc.dart
+            - lib/core/**_cubit.dart
+            - lib/core/**_provider.dart
+            - lib/core/**_repository.dart
+            - lib/modules/**_bloc.dart
+            - lib/modules/**_cubit.dart
+            - lib/modules/**_provider.dart
+            - lib/modules/**_repository.dart
+            - lib/utils/services/remote_config_service/**_service.dart
+            - lib/utils/services/rest_api_service/**.dart
+            - lib/utils/services/native_api_service.dart
+      injectable_generator:injectable_config_builder:
+        enabled: true
+        generate_for:
+          include:
+            - lib/config/injectable/injectable_core.dart
+      # flutter_gen_runner:
+      #   enabled: true
+      #   generate_for:
+      #     include:
+      #       - pubspec.yaml
