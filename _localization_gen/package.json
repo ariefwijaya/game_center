@@ -1,0 +1,36 @@
+{
+  "name": "i18ncsv2json",
+  "version": "0.9.4",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "i18ncsv2json": "index.js"
+  },
+  "dependencies": {
+    "@googleapis/drive": "^2.3.0",
+    "@googleapis/oauth2": "^0.2.0",
+    "commander": "^2.20.3",
+    "csv-parse": "^4.16.0",
+    "dotenv": "^16.0.1",
+    "glob": "^7.1.2",
+    "gulp": "^4.0.2",
+    "gulp-i18n-json-tools": "^1.2.0",
+    "lodash-transpose": "^0.2.1",
+    "lodash.merge": "^4.6.0",
+    "mkdirp": "^0.5.1",
+    "object-path": "^0.11.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/othree/i18ncsv2json.git"
+  },
+  "author": "othree",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/othree/i18ncsv2json/issues"
+  },
+  "homepage": "https://github.com/othree/i18ncsv2json#readme"
+}
