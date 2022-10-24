@@ -7,7 +7,7 @@ targets:
           include:
             - lib/config/routes/routes.dart
             - lib/config/routes/routes_config.dart
-      envify_generator:envify:
+      envied_generator:envied:
         generate_for:
           include:
             - lib/env/env.dart

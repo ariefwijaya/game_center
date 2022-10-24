@@ -11,5 +11,12 @@
   "detail_section_genres": "Genres",
   "detail_section_platforms": "Platforms",
   "detail_section_developers": "Developers",
-  "detail_section_publishers": "Publishers"
+  "detail_section_publishers": "Publishers",
+  "errlytics_failed_title": "Oops, terjadi kesalahan",
+  "errlytics_failed_subtitle": "Gagal mendapatkan data error logs",
+  "errlytics_failed_retry": "Coba Lagi",
+  "errlytics_title": "Error Analytics",
+  "explore_failed_title": "Oops, terjadi kesalahan",
+  "explore_failed_subtitle": "Gagal mendapatkan data error logs",
+  "explore_failed_retry": "Coba Lagi"
 }
