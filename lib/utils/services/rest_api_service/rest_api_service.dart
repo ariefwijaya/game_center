@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:game_center/env/env.dart';
 import 'package:game_center/utils/services/rest_api_service/rest_api_interface.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -25,7 +26,7 @@ class RestApiService implements RestApiInterface {
       String _pathUrl =
           overrideBaseUrl != null ? (overrideBaseUrl + pathUrl) : pathUrl;
       final response = await dio.get(_pathUrl,
-          queryParameters: body,
+          queryParameters: (body ?? {})..addAll({"key": Env.apiKey}),
           options: Options(
               headers: headers,
               sendTimeout: sendTimeout,
