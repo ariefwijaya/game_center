@@ -17,12 +17,12 @@ abstract class DarkTheme {
   );
   static const Color doffWhite = Color.fromARGB(255, 255, 255, 255);
   static const Color neutralBlack = Color(0xff1c1f2a);
-  static const Color textGrey = Color(0xFF747172);
-  static const Color ashGrey = Color(0xFF8E8B8C);
+  static const Color textGrey = Color.fromARGB(255, 94, 116, 161);
+  static const Color ashGrey = Color(0xFF333644);
   static const Color borderShade = Color(0xFFDEDEDE);
   static const Color raspberry = Color(0xFFE20055);
   static const Color sunglow = Color(0xFFFFD23F);
-  static const Color tango = Color(0xFF6FCACF);
-  static const Color torque = Color(0xFF25A8A0);
+  static const Color tango = Color.fromARGB(255, 111, 161, 207);
+  static const Color torque = Color.fromARGB(255, 37, 120, 168);
   static const List<Color> tigerBerry = [Color(0xff4a7ce3), Color(0xFFE20055)];
 }
