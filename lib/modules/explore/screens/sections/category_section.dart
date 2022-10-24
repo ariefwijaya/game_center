@@ -66,7 +66,12 @@ class CategorySection extends StatelessWidget {
       child: Wrap(
         direction: Axis.horizontal,
         spacing: 12,
-        children: listData.map((e) => AttributeCard(data: e.name)).toList(),
+        children: listData
+            .map((e) => AttributeCard(
+                  data: e.name,
+                  image: e.imageBackground,
+                ))
+            .toList(),
       ),
     );
   }
