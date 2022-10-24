@@ -12,7 +12,7 @@ class NewgameSection extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt.get<ExploreGameDetailBloc>()
         ..add(const ExploreGameListFetched(
-            GameFilterModel(ordering: "released"))),
+            GameFilterModel(ordering: "-released,metacritic,rating"))),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +34,7 @@ class NewgameSection extends StatelessWidget {
                   })
             ],
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 8),
           BlocBuilder<ExploreGameDetailBloc, ExploreGameDetailState>(
             builder: (context, state) {
               if (state is ExploreGameListSuccess) {
@@ -59,7 +59,7 @@ class NewgameSection extends StatelessWidget {
       child: Wrap(
         direction: Axis.horizontal,
         spacing: 12,
-        children: List.generate(5, (index) => AttributeCard.loader()).toList(),
+        children: List.generate(5, (index) => GameCard.loader()).toList(),
       ),
     );
   }
@@ -71,15 +71,16 @@ class NewgameSection extends StatelessWidget {
         onPrimaryButtonTapped: () {
           context.read<ExploreGameDetailBloc>().add(
               const ExploreGameListFetched(
-                  GameFilterModel(ordering: "released")));
+                  GameFilterModel(ordering: "-released,metacritic,rating")));
         });
   }
 
   Widget _buildSuccess(BuildContext context,
       {required List<GameModel> listData}) {
-    return Container(
-      height: 400,
+    return SizedBox(
+      height: 295,
       child: ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => GameCard(data: listData[index]),
