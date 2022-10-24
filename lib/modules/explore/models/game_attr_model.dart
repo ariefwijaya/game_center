@@ -4,7 +4,7 @@ part 'game_attr_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class GameAttrModel extends Equatable {
-  final String id;
+  final int id;
   final String name;
   final String? imageBackground;
   const GameAttrModel(

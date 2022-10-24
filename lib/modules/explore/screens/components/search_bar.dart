@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:game_center/main.import.dart';
-import 'package:game_center/main.library.dart';
-import 'package:game_center/widgets/design_system/design_system.dart';
 
 class SearchBar extends StatelessWidget {
   final String? placeholder;

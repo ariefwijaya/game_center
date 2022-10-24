@@ -15,3 +15,4 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 export 'package:rxdart/rxdart.dart';
 export 'package:photo_view/photo_view.dart';
+export 'package:copy_with_extension/copy_with_extension.dart';
