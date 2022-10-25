@@ -13,51 +13,66 @@ class GameCard extends StatelessWidget {
     return SizedBox(
       width: 200,
       child: Container(
-        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
             color: Theme.of(context).disabledColor),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Stack(
-              children: [
-                ImagePlaceholder(
-                    imageUrl: data.backgroundImage,
-                    height: 180,
-                    width: 180,
-                    borderRadius: BorderRadius.circular(25)),
-                Positioned(
-                    top: 10, right: 10, child: RatingBadge(value: data.rating))
-              ],
+        child: Material(
+          borderRadius: BorderRadius.circular(25),
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(25),
+            onTap: () {
+              context.pushRoute(ExploreDetailRoute(id: data.id));
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Stack(
+                    children: [
+                      ImagePlaceholder(
+                          imageUrl: data.backgroundImage,
+                          height: 180,
+                          width: 180,
+                          borderRadius: BorderRadius.circular(25)),
+                      Positioned(
+                          top: 10,
+                          right: 10,
+                          child: RatingBadge(value: data.rating))
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  TypographyCustom.heading.h5(data.name,
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                  const SizedBox(height: 6),
+                  if (data.genres.isNotEmpty)
+                    TypographyCustom.subheading.medium(data.genres.first.name,
+                        maxLines: 1, overflow: TextOverflow.ellipsis)
+                  else
+                    TypographyCustom.subheading.medium("",
+                        maxLines: 1, overflow: TextOverflow.ellipsis),
+                  const SizedBox(height: 7),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: data.releaseDate == null
+                            ? Container()
+                            : TypographyCustom.subheading.medium(
+                                DateFormat("dd, MMM yyyy")
+                                    .format(data.releaseDate!),
+                                maxLines: 1),
+                      ),
+                      const SizedBox(width: 8),
+                      if (data.metacritic != null)
+                        MetacriticBadge(value: data.metacritic!)
+                    ],
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 12),
-            TypographyCustom.heading
-                .h5(data.name, maxLines: 1, overflow: TextOverflow.ellipsis),
-            const SizedBox(height: 6),
-            if (data.genres.isNotEmpty)
-              TypographyCustom.subheading.medium(data.genres.first.name,
-                  maxLines: 1, overflow: TextOverflow.ellipsis)
-            else
-              TypographyCustom.subheading
-                  .medium("", maxLines: 1, overflow: TextOverflow.ellipsis),
-            const SizedBox(height: 7),
-            Row(
-              children: [
-                Expanded(
-                  child: data.releaseDate == null
-                      ? Container()
-                      : TypographyCustom.subheading.medium(
-                          DateFormat("dd, MMM yyyy").format(data.releaseDate!),
-                          maxLines: 1),
-                ),
-                const SizedBox(width: 8),
-                if (data.metacritic != null)
-                  MetacriticBadge(value: data.metacritic!)
-              ],
-            ),
-          ],
+          ),
         ),
       ),
     );

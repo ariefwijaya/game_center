@@ -11,59 +11,71 @@ class GameListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: Theme.of(context).disabledColor),
-      child: Row(
-        children: [
-          Stack(
-            children: [
-              ImagePlaceholder(
-                height: 85,
-                width: 150,
-                borderRadius: BorderRadius.circular(20),
-                imageUrl: data.backgroundImage,
-              ),
-              if (data.metacritic != null)
-                Positioned(
-                    left: 10,
-                    top: 10,
-                    child: MetacriticBadge(value: data.metacritic!))
-            ],
+      child: Material(
+        borderRadius: BorderRadius.circular(25),
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(25),
+          onTap: () {
+            context.pushRoute(ExploreDetailRoute(id: data.id));
+          },
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              children: [
+                Stack(
+                  children: [
+                    ImagePlaceholder(
+                      height: 85,
+                      width: 150,
+                      borderRadius: BorderRadius.circular(20),
+                      imageUrl: data.backgroundImage,
+                    ),
+                    if (data.metacritic != null)
+                      Positioned(
+                          left: 10,
+                          top: 10,
+                          child: MetacriticBadge(value: data.metacritic!))
+                  ],
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TypographyCustom.heading.h5(data.name,
+                        maxLines: 1, overflow: TextOverflow.ellipsis),
+                    const SizedBox(height: 6),
+                    if (data.genres.isNotEmpty)
+                      TypographyCustom.subheading.medium(data.genres.first.name,
+                          maxLines: 1, overflow: TextOverflow.ellipsis)
+                    else
+                      TypographyCustom.subheading.medium("",
+                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                    const SizedBox(height: 7),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: data.releaseDate == null
+                              ? Container()
+                              : TypographyCustom.subheading.medium(
+                                  DateFormat("dd, MMM yyyy")
+                                      .format(data.releaseDate!),
+                                  maxLines: 1),
+                        ),
+                        const SizedBox(width: 8),
+                        RatingBadge(value: data.rating)
+                      ],
+                    ),
+                  ],
+                ))
+              ],
+            ),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TypographyCustom.heading
-                  .h5(data.name, maxLines: 1, overflow: TextOverflow.ellipsis),
-              const SizedBox(height: 6),
-              if (data.genres.isNotEmpty)
-                TypographyCustom.subheading.medium(data.genres.first.name,
-                    maxLines: 1, overflow: TextOverflow.ellipsis)
-              else
-                TypographyCustom.subheading
-                    .medium("", maxLines: 1, overflow: TextOverflow.ellipsis),
-              const SizedBox(height: 7),
-              Row(
-                children: [
-                  Expanded(
-                    child: data.releaseDate == null
-                        ? Container()
-                        : TypographyCustom.subheading.medium(
-                            DateFormat("dd, MMM yyyy")
-                                .format(data.releaseDate!),
-                            maxLines: 1),
-                  ),
-                  const SizedBox(width: 8),
-                  RatingBadge(value: data.rating)
-                ],
-              ),
-            ],
-          ))
-        ],
+        ),
       ),
     );
   }
