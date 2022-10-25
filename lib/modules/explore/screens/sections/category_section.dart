@@ -70,6 +70,10 @@ class CategorySection extends StatelessWidget {
             .map((e) => AttributeCard(
                   data: e.name,
                   image: e.imageBackground,
+                  onTap: () {
+                    context
+                        .pushRoute(ExploreListRoute(genres: e.id.toString()));
+                  },
                 ))
             .toList(),
       ),
