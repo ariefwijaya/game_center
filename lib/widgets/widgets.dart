@@ -15,6 +15,7 @@ export 'design_system/typography/subheading_text.dart';
 export 'design_system/typography/typography.dart';
 export 'header_clipper.dart';
 export 'image_placeholder.dart';
+export 'image_viewer.dart';
 export 'keepalive_component.dart';
 export 'markdown_text.dart';
 export 'skeleton_loader.dart';
