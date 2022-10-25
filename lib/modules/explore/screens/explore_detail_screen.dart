@@ -1,6 +1,7 @@
 import 'package:game_center/main.import.dart';
 import 'package:game_center/main.library.dart';
-import 'package:game_center/modules/explore/models/game_model.dart';
+import '../models/models.dart';
+import 'fragments/fragments.dart';
 
 import '../blocs/blocs.dart';
 
@@ -31,15 +32,13 @@ class ExploreDetailScreen extends StatelessWidget {
   }
 
   Widget _buildSuccess(BuildContext context, {required GameModel data}) {
-    return Scaffold(
-      appBar: AppBar(),
-    );
+    return GameDetailFragment(data: data);
   }
 
   Widget _buildFailure(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TypographyCustom.heading.h3(LocaleKeys.detail_game_title.tr()),
+        title: TypographyCustom.heading.h4(LocaleKeys.detail_game_title.tr()),
       ),
       body: SectionPlaceholder.medium(
         title: LocaleKeys.explore_failed_title.tr(),
@@ -55,7 +54,7 @@ class ExploreDetailScreen extends StatelessWidget {
   Widget _buildLoading() {
     return Scaffold(
       appBar: AppBar(
-        title: TypographyCustom.heading.h3(LocaleKeys.detail_game_title.tr()),
+        title: TypographyCustom.heading.h4(LocaleKeys.detail_game_title.tr()),
       ),
       body: const Center(
         child: CircularProgressIndicator(),
