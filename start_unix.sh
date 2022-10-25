@@ -4,6 +4,7 @@ usage="$(basename "$0") [[-h]] [[-c]] [[-u]] [[-g]] [[-b]] [[-x]] -- Script to g
 where:
     -h  show this help text
     -c Do flutter clean and pub get (default: false)
+    -u Update localization From our cloud (default: false)
     -g Generate Localization key (default: false)
     -b Generate Build Runner (default: false)
     -x Enable All" 
@@ -26,6 +27,7 @@ while getopts xhc:u:g:b: arg; do
            break
            ;;
         c) clean_pubget=$OPTARG;;
+        u) update_localization=$OPTARG;;
         g) generate_localization=$OPTARG;;
         b) generate_build_runner=$OPTARG;;
     esac
