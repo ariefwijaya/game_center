@@ -8,6 +8,7 @@ part 'game_model.g.dart';
 class GameModel extends Equatable {
   final int id;
   final String name;
+  @JsonKey(name: "description_raw")
   final String? description;
   final String? backgroundImage;
   @JsonKey(defaultValue: [])
