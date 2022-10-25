@@ -12,6 +12,8 @@ class ErrlyticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: AutoLeadingButton(
+              color: Theme.of(context).scaffoldBackgroundColor),
           backgroundColor: Theme.of(context).primaryColorLight,
           title: Text(
             LocaleKeys.errlytics_title.tr(),
