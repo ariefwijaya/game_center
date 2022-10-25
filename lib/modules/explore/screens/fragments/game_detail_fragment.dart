@@ -127,6 +127,7 @@ class GameDetailFragment extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Container(
+            margin: const EdgeInsets.only(bottom: 40),
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
