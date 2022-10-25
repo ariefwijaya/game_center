@@ -13,11 +13,12 @@
   "detail_section_developers": "Developers",
   "detail_section_publishers": "Publishers",
   "explore_games_title": "Explore Games",
-  "errlytics_failed_title": "Oops, terjadi kesalahan",
-  "errlytics_failed_subtitle": "Gagal mendapatkan data error logs",
-  "errlytics_failed_retry": "Coba Lagi",
+  "errlytics_failed_title": "Oops, something wrong happened",
+  "errlytics_failed_subtitle": "Failed to get data",
+  "errlytics_failed_retry": "Retry",
   "errlytics_title": "Error Analytics",
-  "explore_failed_title": "Oops, terjadi kesalahan",
-  "explore_failed_subtitle": "Gagal mendapatkan data error logs",
-  "explore_failed_retry": "Coba Lagi"
+  "explore_failed_title": "Oops, something wrong happened",
+  "explore_failed_subtitle": "Failed to get data",
+  "explore_failed_retry": "Retry",
+  "detail_game_title": "Game Details"
 }
