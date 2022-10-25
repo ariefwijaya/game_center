@@ -6,7 +6,6 @@ Hi readers, I'm kinda excited to share you the journey when I build a simple app
 3. Clean and Complete architecture
 4. Start Developing the module
 5. Build and deploy Apps
-6. Bonus (Release the WebApp version)
 
 Ok, I think that's enough as an introduction, now without any further ado lets start our journey guys!
 
@@ -144,3 +143,25 @@ The architectural design of the project is adjusted to the needs of our app and 
 - `widgets/` → All reusable widgets
     - `├──design_system/` → Reusable Design system widgets to reduce boiler plate
 - `sh start_unix.sh/` → A generator script before build this app, run `sh start_unix.sh -h` for available commands
+
+# Build and Deploy Apps
+## How to Run and Build App
+- Run `sh start_unix.sh -x` int the root of project
+- Run `flutter build apk` to build apk
+- Run `flutter run` to run apk
+- If you are using Visual Code, just use **F5** shortcut to run and debug app
+
+## Download APK
+in case you just want to try the app, please download apk here https://github.com/ariefwijaya/game_center/releases/tag/v1.0.0
+## Video Demo
+https://user-images.githubusercontent.com/24664153/197668964-9a06df32-7bb6-4709-8e6b-b34a18aa6b52.mp4
+
+## Screenshots
+| Splash | Onboarding | Home | Filter |
+| --- | --- | --- | --- |
+|![splash](https://user-images.githubusercontent.com/24664153/197667455-850629e4-3af9-4493-b531-ee7dfa6b7de2.png)|![onboarding](https://user-images.githubusercontent.com/24664153/197667774-8b1ac7ac-bf99-4a81-ad2a-676a650ed02f.png)|![home](https://user-images.githubusercontent.com/24664153/197667955-a5384950-d8b6-4922-97f7-27720fd9c59a.png)|![list](https://user-images.githubusercontent.com/24664153/197668079-2b1a2a15-8fdc-41d9-a1f0-fe53a2f9dcf2.png)|
+
+| Search | Detail 1 | Detail 2 | ErrorLytics | Alice |
+| --- | --- | --- | --- | --- |
+|![search](https://user-images.githubusercontent.com/24664153/197668301-56b51bcc-1a2d-4625-917a-dff976cd7edf.png)| ![detail1](https://user-images.githubusercontent.com/24664153/197668350-2599191a-59b1-49d9-930b-46e56bb72673.png) | ![detail2](https://user-images.githubusercontent.com/24664153/197668456-b3b56172-54a9-47d7-ac7e-32eee8defce3.png) | ![alice](https://user-images.githubusercontent.com/24664153/197668466-165899be-0965-45ec-8b79-5a193b972465.png) | ![errlytics](https://user-images.githubusercontent.com/24664153/197668470-85df7da7-fcc6-4b8c-a630-ea84f862db2b.png) |
+
