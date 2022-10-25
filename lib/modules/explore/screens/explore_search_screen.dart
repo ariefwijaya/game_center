@@ -28,7 +28,9 @@ class _ExploreSearchScreenState extends State<ExploreSearchScreen> {
         title: CupertinoSearchTextField(
           style: Theme.of(context).textTheme.bodyText1,
           onChanged: (value) {
-            _exploreGamesBloc.add(ExploreGamesSearchStarted(query: value));
+            if (_exploreGamesBloc.filter.search != value) {
+              _exploreGamesBloc.add(ExploreGamesSearchStarted(query: value));
+            }
           },
         ),
       ),
