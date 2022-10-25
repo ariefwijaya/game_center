@@ -16,9 +16,10 @@ class ExploreGameDetailFetched extends ExploreGameDetailEvent {
 }
 
 class ExploreGameListFetched extends ExploreGameDetailEvent {
+  final int? size;
   final GameFilterModel? filter;
-  const ExploreGameListFetched([this.filter]);
+  const ExploreGameListFetched({this.filter, this.size});
 
   @override
-  List<Object?> get props => [filter];
+  List<Object?> get props => [filter, size];
 }

@@ -31,8 +31,8 @@ class ExploreGameDetailBloc
         emit(ExploreGameDetailLoading());
         final res = await exploreRepository.getListGames(
             filter: event.filter,
-            pagination: const FilterPaginationModel(
-                pageOffset: 0, pageSize: 10, page: 1));
+            pagination: FilterPaginationModel(
+                pageOffset: 0, pageSize: event.size ?? 8, page: 1));
         emit(ExploreGameListSuccess(listData: res));
       } catch (e, s) {
         emit(ExploreGameDetailFailure(error: e, stackTrace: s));
