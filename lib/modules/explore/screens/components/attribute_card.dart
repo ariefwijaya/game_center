@@ -22,6 +22,7 @@ class AttributeCard extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 if (image != null)
                   Container(
