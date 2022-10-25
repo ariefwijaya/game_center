@@ -66,11 +66,19 @@ dev_dependencies:
   copy_with_extension_gen: ^4.0.3
   envied_generator: ^0.2.3
   flutter_gen_runner: ^5.0.3
+  flutter_launcher_icons: ^0.10.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   injectable_generator: ^1.5.4
   json_serializable: ^6.5.3
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/logo.png"
+  image_path_ios: "assets/images/logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
