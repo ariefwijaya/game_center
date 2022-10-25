@@ -64,12 +64,12 @@ class GameCard extends StatelessWidget {
   }
 
   static Widget loader() {
-    return _BuildLoader();
+    return const _BuildLoader();
   }
 }
 
 class _BuildLoader extends StatefulWidget {
-  _BuildLoader({Key? key}) : super(key: key);
+  const _BuildLoader({Key? key}) : super(key: key);
 
   @override
   State<_BuildLoader> createState() => __BuildLoaderState();
