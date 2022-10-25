@@ -4,16 +4,14 @@ import 'package:game_center/modules/explore/blocs/blocs.dart';
 import 'package:game_center/modules/explore/models/models.dart';
 import 'package:game_center/modules/explore/screens/components/components.dart';
 
-class NewgameSection extends StatelessWidget {
-  const NewgameSection({Key? key}) : super(key: key);
+class PopularSection extends StatelessWidget {
+  const PopularSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt.get<ExploreGameDetailBloc>()
-        ..add(ExploreGameListFetched(
-            filter: GameFilterModel(ordering: _getFilter()?.ordering),
-            size: 8)),
+        ..add(ExploreGameListFetched(filter: _getFilter(), size: 5)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +22,7 @@ class NewgameSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: TypographyCustom.heading
-                      .h4(LocaleKeys.home_section_new.tr()),
+                      .h4(LocaleKeys.home_section_popular.tr()),
                 ),
                 const SizedBox(width: 5),
                 NudeButton.medium(
@@ -56,43 +54,49 @@ class NewgameSection extends StatelessWidget {
   }
 
   Widget _buildLoading() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Wrap(
-        direction: Axis.horizontal,
-        spacing: 12,
-        children: List.generate(5, (index) => GameCard.loader()).toList(),
+      child: Column(
+        children: List.generate(
+            3,
+            (data) => Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: GameListCard.loader(),
+                )).toList(),
       ),
     );
   }
 
   Widget _buildFailed(BuildContext context) {
-    return SectionPlaceholder.small(
-        title: LocaleKeys.explore_failed_title.tr(),
-        primaryButtonText: LocaleKeys.explore_failed_retry.tr(),
-        onPrimaryButtonTapped: () {
-          context
-              .read<ExploreGameDetailBloc>()
-              .add(ExploreGameListFetched(filter: _getFilter(), size: 8));
-        });
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SectionPlaceholder.small(
+          title: LocaleKeys.explore_failed_title.tr(),
+          primaryButtonText: LocaleKeys.explore_failed_retry.tr(),
+          onPrimaryButtonTapped: () {
+            context
+                .read<ExploreGameDetailBloc>()
+                .add(ExploreGameListFetched(filter: _getFilter(), size: 5));
+          }),
+    );
   }
 
   Widget _buildSuccess(BuildContext context,
       {required List<GameModel> listData}) {
-    return SizedBox(
-      height: 295,
-      child: ListView.separated(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => GameCard(data: listData[index]),
-          separatorBuilder: (context, index) => const SizedBox(width: 10),
-          itemCount: listData.length),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: listData
+            .map((data) => Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: GameListCard(data: data),
+                ))
+            .toList(),
+      ),
     );
   }
 
   GameFilterModel? _getFilter() {
-    return const GameFilterModel(ordering: "released,metacritic,rating");
+    return const GameFilterModel(ordering: "-metacritic");
   }
 }
