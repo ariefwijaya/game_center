@@ -12,6 +12,7 @@ detail_section_genres,Genres,Genres
 detail_section_platforms,Platforms,Platforms
 detail_section_developers,Developers,Developers
 detail_section_publishers,Publishers,Publishers
+explore_games_title,Explore Games,Explore Games
 errlytics_failed_title,"Oops, terjadi kesalahan","Oops, terjadi kesalahan"
 errlytics_failed_subtitle,Gagal mendapatkan data error logs,Gagal mendapatkan data error logs
 errlytics_failed_retry,Coba Lagi,Coba Lagi
