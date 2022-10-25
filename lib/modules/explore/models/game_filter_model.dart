@@ -7,12 +7,13 @@ part 'game_filter_model.g.dart';
 class GameFilterModel extends Equatable {
   final String? search;
   final String? ordering;
-  const GameFilterModel({this.search, this.ordering});
+  final String? genres;
+  const GameFilterModel({this.search, this.ordering, this.genres});
 
   factory GameFilterModel.fromJson(Map<String, dynamic> json) =>
       _$GameFilterModelFromJson(json);
   Map<String, dynamic> toJson() => _$GameFilterModelToJson(this);
 
   @override
-  List<Object?> get props => [search, ordering];
+  List<Object?> get props => [search, ordering, genres];
 }
